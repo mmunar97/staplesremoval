@@ -18,7 +18,8 @@ def generate_mask(image):
     holes = fill_small_holes(C)
     filtered = remove_small_objects(holes,50)
 
-    return(filtered)
+    dilated_mask = dilate_mask(dilate_mask(filtered, se),se)
+    return(dilated_mask)
 
 def convert_image_to_HSV(image):
     return(rgb2hsv(image))
@@ -48,3 +49,7 @@ def fill_small_holes(image):
 
 def remove_small_objects(image, area):
     return(skimage.morphology.remove_small_objects(image,area))
+
+def dilate_mask(mask,structuring_element):
+    return (skimage.morphology.binary_dilation(mask,
+                                               structuring_element))

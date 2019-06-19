@@ -12,20 +12,19 @@ def inpaint_from_mask(image,mask):
     image_with_nans = generate_image_with_nans(image,mask)
     image_inpainted, img_inpainted_steps = morphology.inpaint_with_steps(image_with_nans,
                                                                        structuring_element=se,
-                                                                       max_iterations=10)
+                                                                       max_iterations = 100)
 
     return image_inpainted
-
 
 def generate_image_with_nans(image,mask):
     image_size = image.shape
     image_with_nans = img_as_float(image.copy())
     for i in range(image_size[0]):
         for j in range(image_size[1]):
-            if (mask[1,1] == True):
+            if (mask[i,j] == True):
+                image_with_nans[i, j, 0] = numpy.nan
                 image_with_nans[i, j, 1] = numpy.nan
                 image_with_nans[i, j, 2] = numpy.nan
-                image_with_nans[i, j, 3] = numpy.nan
 
     return(image_with_nans)
 
