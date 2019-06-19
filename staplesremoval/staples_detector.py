@@ -3,6 +3,7 @@ from skimage.color import rgb2hsv
 from skimage import morphology
 import numpy
 import scipy
+import softcolor
 
 def generate_mask(image):
     HSV_image = convert_image_to_HSV(image)
