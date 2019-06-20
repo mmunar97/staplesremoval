@@ -20,110 +20,110 @@ def trapezoid_fuzzy_color_segmentation(image):
 
             m = max([p_red, p_orange, p_yellow, p_green, p_cyan, p_blue, p_purple])
 
-            if (m == p_red):
+            if m == p_red:
                 rgb_image[i, j, 0] = 255
                 rgb_image[i, j, 1] = 0
                 rgb_image[i, j, 2] = 0
-            elif (m == p_orange):
+            elif m == p_orange:
                 rgb_image[i, j, 0] = 255
                 rgb_image[i, j, 1] = 165
                 rgb_image[i, j, 2] = 0
-            elif (m == p_yellow):
+            elif m == p_yellow:
                 rgb_image[i, j, 0] = 255
                 rgb_image[i, j, 1] = 255
                 rgb_image[i, j, 2] = 0
-            elif (m == p_green):
+            elif m == p_green:
                 rgb_image[i, j, 0] = 0
                 rgb_image[i, j, 1] = 128
                 rgb_image[i, j, 2] = 0
-            elif (m == p_cyan):
+            elif m == p_cyan:
                 rgb_image[i, j, 0] = 0
                 rgb_image[i, j, 1] = 255
                 rgb_image[i, j, 2] = 255
-            elif (m == p_blue):
+            elif m == p_blue:
                 rgb_image[i, j, 0] = 0
                 rgb_image[i, j, 1] = 0
                 rgb_image[i, j, 2] = 255
-            elif (m == p_purple):
+            elif m == p_purple:
                 rgb_image[i, j, 0] = 128
                 rgb_image[i, j, 1] = 0
                 rgb_image[i, j, 2] = 128
 
-    return (rgb_image)
+    return rgb_image
 
 
-def fuzzy_segmentation_red_trapezoid(H):
-    if ((0 <= H <= 10) or (330 < H <= 360)):
+def fuzzy_segmentation_red_trapezoid(h):
+    if (0 <= h <= 10) or (330 < h <= 360):
         return (1)
-    elif (10 < H <= 20):
-        return (-0.1 * H + 2)
-    elif (20 < H <= 300):
-        return (0)
-    elif (300 < H <= 330):
-        return ((1 / 30) * H - 10)
+    elif 10 < h <= 20:
+        return -0.1 * h + 2
+    elif 20 < h <= 300:
+        return 0
+    elif 300 < h <= 330:
+        return (1 / 30) * h - 10
 
 
-def fuzzy_segmentation_orange_trapezoid(H):
-    if (0 <= H <= 10 or 55 < H <= 360):
-        return (0)
-    elif (10 < H <= 20):
-        return (0.1 * H - 1)
-    elif (20 < H <= 40):
-        return (1)
-    elif (40 < H <= 55):
-        return ((-1 / 15) * H + 11 / 3)
+def fuzzy_segmentation_orange_trapezoid(h):
+    if 0 <= h <= 10 or 55 < h <= 360:
+        return 0
+    elif 10 < h <= 20:
+        return 0.1 * h - 1
+    elif 20 < h <= 40:
+        return 1
+    elif 40 < h <= 55:
+        return (-1 / 15) * h + 11 / 3
 
 
-def fuzzy_segmentation_yellow_trapezoid(H):
-    if (0 <= H <= 40 or 80 < H <= 360):
-        return (0)
-    elif (40 < H <= 55):
-        return ((1 / 15) * H - 8 / 3)
-    elif (55 < H <= 65):
-        return (1)
-    elif (65 < H <= 80):
-        return ((-1 / 15) * H + 11 / 3)
+def fuzzy_segmentation_yellow_trapezoid(h):
+    if 0 <= h <= 40 or 80 < h <= 360:
+        return 0
+    elif 40 < h <= 55:
+        return (1 / 15) * h - 8 / 3
+    elif 55 < h <= 65:
+        return 1
+    elif 65 < h <= 80:
+        return (-1 / 15) * h + 11 / 3
 
 
-def fuzzy_segmentation_green_trapezoid(H):
-    if (0 <= H <= 65 or 170 < H <= 360):
-        return (0)
-    elif (65 < H <= 80):
-        return ((1 / 15) * H - 8 / 3)
-    elif (80 < H <= 140):
-        return (1)
-    elif (140 < H <= 170):
-        return ((-1 / 30) * H + 17 / 3)
+def fuzzy_segmentation_green_trapezoid(h):
+    if 0 <= h <= 65 or 170 < h <= 360:
+        return 0
+    elif 65 < h <= 80:
+        return (1 / 15) * h - 8 / 3
+    elif 80 < h <= 140:
+        return 1
+    elif 140 < h <= 170:
+        return (-1 / 30) * h + 17 / 3
 
 
-def fuzzy_segmentation_cyan_trapezoid(H):
-    if (0 <= H <= 140 or 210 < H <= 360):
-        return (0)
-    elif (140 < H <= 170):
-        return ((1 / 30) * H - 14 / 3)
-    elif (170 < H <= 200):
-        return (1)
-    elif (200 < H <= 210):
-        return (-0.1 * H + 21)
+def fuzzy_segmentation_cyan_trapezoid(h):
+    if 0 <= h <= 140 or 210 < h <= 360:
+        return 0
+    elif 140 < h <= 170:
+        return (1 / 30) * h - 14 / 3
+    elif 170 < h <= 200:
+        return 1
+    elif 200 < h <= 210:
+        return -0.1 * h + 21
 
 
-def fuzzy_segmentation_blue_trapezoid(H):
-    if (0 <= H <= 200 or 270 < H <= 360):
-        return (0)
-    elif (200 < H <= 210):
-        return (0.1 * H - 20)
-    elif (210 < H <= 250):
-        return (1)
-    elif (250 < H <= 270):
-        return ((-1 / 20) * H + 27 / 2)
+def fuzzy_segmentation_blue_trapezoid(h):
+    if 0 <= h <= 200 or 270 < h <= 360:
+        return 0
+    elif 200 < h <= 210:
+        return 0.1 * h - 20
+    elif 210 < h <= 250:
+        return 1
+    elif 250 < h <= 270:
+        return (-1 / 20) * h + 27 / 2
 
 
-def fuzzy_segmentation_purple_trapezoid(H):
-    if (0 <= H <= 250 or 330 < H <= 360):
-        return (0)
-    elif (250 < H <= 270):
-        return ((1 / 20) * H - 5 / 4)
-    elif (270 < H <= 300):
-        return (1)
-    elif (300 < H <= 330):
-        return ((-1 / 30) * H + 11)
+def fuzzy_segmentation_purple_trapezoid(h):
+    if 0 <= h <= 250 or 330 < h <= 360:
+        return 0
+    elif 250 < h <= 270:
+        return (1 / 20) * h - 5 / 4
+    elif 270 < h <= 300:
+        return 1
+    elif 300 < h <= 330:
+        return (-1 / 30) * h + 11
