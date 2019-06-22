@@ -1,7 +1,7 @@
 from skimage import color
 
 
-def trapezoid_fuzzy_color_segmentation(image):
+def trapezoidal_fuzzy_color_segmentation(image):
     rgb_image = image.copy()
     hsv_image = color.rgb2hsv(rgb_image)
 
@@ -10,13 +10,13 @@ def trapezoid_fuzzy_color_segmentation(image):
     for i in range(h_channel.shape[0]):
         for j in range(h_channel.shape[1]):
 
-            p_red = fuzzy_segmentation_red_trapezoid(h_channel[i, j])
-            p_orange = fuzzy_segmentation_orange_trapezoid(h_channel[i, j])
-            p_yellow = fuzzy_segmentation_yellow_trapezoid(h_channel[i, j])
-            p_green = fuzzy_segmentation_green_trapezoid(h_channel[i, j])
-            p_cyan = fuzzy_segmentation_cyan_trapezoid(h_channel[i, j])
-            p_blue = fuzzy_segmentation_blue_trapezoid(h_channel[i, j])
-            p_purple = fuzzy_segmentation_purple_trapezoid(h_channel[i, j])
+            p_red = fuzzy_segmentation_red_trapezoidal(h_channel[i, j])
+            p_orange = fuzzy_segmentation_orange_trapezoidal(h_channel[i, j])
+            p_yellow = fuzzy_segmentation_yellow_trapezoidal(h_channel[i, j])
+            p_green = fuzzy_segmentation_green_trapezoidal(h_channel[i, j])
+            p_cyan = fuzzy_segmentation_cyan_trapezoidal(h_channel[i, j])
+            p_blue = fuzzy_segmentation_blue_trapezoidal(h_channel[i, j])
+            p_purple = fuzzy_segmentation_purple_trapezoidal(h_channel[i, j])
 
             m = max([p_red, p_orange, p_yellow, p_green, p_cyan, p_blue, p_purple])
 
@@ -52,7 +52,7 @@ def trapezoid_fuzzy_color_segmentation(image):
     return rgb_image
 
 
-def fuzzy_segmentation_red_trapezoid(h):
+def fuzzy_segmentation_red_trapezoidal(h):
     if (0 <= h <= 10) or (330 < h <= 360):
         return (1)
     elif 10 < h <= 20:
@@ -63,7 +63,7 @@ def fuzzy_segmentation_red_trapezoid(h):
         return (1 / 30) * h - 10
 
 
-def fuzzy_segmentation_orange_trapezoid(h):
+def fuzzy_segmentation_orange_trapezoidal(h):
     if 0 <= h <= 10 or 55 < h <= 360:
         return 0
     elif 10 < h <= 20:
@@ -74,7 +74,7 @@ def fuzzy_segmentation_orange_trapezoid(h):
         return (-1 / 15) * h + 11 / 3
 
 
-def fuzzy_segmentation_yellow_trapezoid(h):
+def fuzzy_segmentation_yellow_trapezoidal(h):
     if 0 <= h <= 40 or 80 < h <= 360:
         return 0
     elif 40 < h <= 55:
@@ -85,7 +85,7 @@ def fuzzy_segmentation_yellow_trapezoid(h):
         return (-1 / 15) * h + 11 / 3
 
 
-def fuzzy_segmentation_green_trapezoid(h):
+def fuzzy_segmentation_green_trapezoidal(h):
     if 0 <= h <= 65 or 170 < h <= 360:
         return 0
     elif 65 < h <= 80:
@@ -96,7 +96,7 @@ def fuzzy_segmentation_green_trapezoid(h):
         return (-1 / 30) * h + 17 / 3
 
 
-def fuzzy_segmentation_cyan_trapezoid(h):
+def fuzzy_segmentation_cyan_trapezoidal(h):
     if 0 <= h <= 140 or 210 < h <= 360:
         return 0
     elif 140 < h <= 170:
@@ -107,7 +107,7 @@ def fuzzy_segmentation_cyan_trapezoid(h):
         return -0.1 * h + 21
 
 
-def fuzzy_segmentation_blue_trapezoid(h):
+def fuzzy_segmentation_blue_trapezoidal(h):
     if 0 <= h <= 200 or 270 < h <= 360:
         return 0
     elif 200 < h <= 210:
@@ -118,7 +118,7 @@ def fuzzy_segmentation_blue_trapezoid(h):
         return (-1 / 20) * h + 27 / 2
 
 
-def fuzzy_segmentation_purple_trapezoid(h):
+def fuzzy_segmentation_purple_trapezoidal(h):
     if 0 <= h <= 250 or 330 < h <= 360:
         return 0
     elif 250 < h <= 270:

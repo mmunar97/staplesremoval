@@ -19,7 +19,9 @@ def generate_mask(image):
     filtered = remove_small_objects(holes, 50)
 
     dilated_mask = dilate_mask(dilate_mask(filtered, se), se)
-    return (dilated_mask)
+    colormask = get_drawn_mask(image, dilated_mask)
+
+    return colormask, dilated_mask
 
 
 def convert_image_to_HSV(image):
@@ -61,3 +63,15 @@ def remove_small_objects(image, area):
 def dilate_mask(mask, structuring_element):
     return (skimage.morphology.binary_dilation(mask,
                                                structuring_element))
+
+def get_drawn_mask(image,mask):
+
+    colormask = image.copy()
+    for i in range(mask.shape[0]):
+        for j in range(mask.shape[1]):
+            if mask[i, j]:
+                colormask[i, j, 0] = 70/255
+                colormask[i, j, 1] = 253/255
+                colormask[i, j, 2] = 52/255
+
+    return colormask

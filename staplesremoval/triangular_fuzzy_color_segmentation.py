@@ -1,7 +1,7 @@
 from skimage import color
 
 
-def triangle_fuzzy_color_segmentation(image):
+def triangular_fuzzy_color_segmentation(image):
     rgb_image = image.copy()
     hsv_image = color.rgb2hsv(rgb_image)
 
@@ -10,16 +10,16 @@ def triangle_fuzzy_color_segmentation(image):
     for i in range(h_channel.shape[0]):
         for j in range(h_channel.shape[1]):
 
-            p_red = fuzzy_segmentation_red_triangle(h_channel[i, j])
-            p_darkorange = fuzzy_segmentation_darkorange_triangle(h_channel[i, j])
-            p_lightorange = fuzzy_segmentation_lightorange_triangle(h_channel[i, j])
-            p_yellow = fuzzy_segmentation_yellow_triangle(h_channel[i, j])
-            p_lightgreen = fuzzy_segmentation_lightgreen_triangle(h_channel[i, j])
-            p_darkgreen = fuzzy_segmentation_darkgreen_triangle(h_channel[i, j])
-            p_aqua = fuzzy_segmentation_aqua_triangle(h_channel[i, j])
-            p_blue = fuzzy_segmentation_blue_triangle(h_channel[i, j])
-            p_darkpurple = fuzzy_segmentation_darkpurple_triangle(h_channel[i, j])
-            p_lightpurple = fuzzy_segmentation_lightpurple_triangle(h_channel[i, j])
+            p_red = fuzzy_segmentation_red_triangular(h_channel[i, j])
+            p_darkorange = fuzzy_segmentation_darkorange_triangular(h_channel[i, j])
+            p_lightorange = fuzzy_segmentation_lightorange_triangular(h_channel[i, j])
+            p_yellow = fuzzy_segmentation_yellow_triangular(h_channel[i, j])
+            p_lightgreen = fuzzy_segmentation_lightgreen_triangular(h_channel[i, j])
+            p_darkgreen = fuzzy_segmentation_darkgreen_triangular(h_channel[i, j])
+            p_aqua = fuzzy_segmentation_aqua_triangular(h_channel[i, j])
+            p_blue = fuzzy_segmentation_blue_triangular(h_channel[i, j])
+            p_darkpurple = fuzzy_segmentation_darkpurple_triangular(h_channel[i, j])
+            p_lightpurple = fuzzy_segmentation_lightpurple_triangular(h_channel[i, j])
 
             m = max([p_red, p_darkorange, p_lightorange, p_yellow, p_lightgreen, p_darkgreen,
                      p_aqua, p_blue, p_darkpurple, p_lightpurple])
@@ -68,7 +68,7 @@ def triangle_fuzzy_color_segmentation(image):
     return rgb_image
 
 
-def fuzzy_segmentation_red_triangle(h):
+def fuzzy_segmentation_red_triangular(h):
     if 0 <= h <= 30:
         return 1 - h / 30
     elif 330 <= h <= 360:
@@ -77,7 +77,7 @@ def fuzzy_segmentation_red_triangle(h):
         return 0
 
 
-def fuzzy_segmentation_darkorange_triangle(h):
+def fuzzy_segmentation_darkorange_triangular(h):
     if 0 <= h <= 30:
         return h / 30
     elif 30 <= h <= 45:
@@ -86,7 +86,7 @@ def fuzzy_segmentation_darkorange_triangle(h):
         return 0
 
 
-def fuzzy_segmentation_lightorange_triangle(h):
+def fuzzy_segmentation_lightorange_triangular(h):
     if 30 <= h <= 45:
         return -2 + h / 15
     elif 45 <= h <= 60:
@@ -95,7 +95,7 @@ def fuzzy_segmentation_lightorange_triangle(h):
         return 0
 
 
-def fuzzy_segmentation_yellow_triangle(h):
+def fuzzy_segmentation_yellow_triangular(h):
     if 45 <= h <= 60:
         return -3 + h / 15
     elif 60 <= h <= 90:
@@ -104,7 +104,7 @@ def fuzzy_segmentation_yellow_triangle(h):
         return 0
 
 
-def fuzzy_segmentation_lightgreen_triangle(h):
+def fuzzy_segmentation_lightgreen_triangular(h):
     if 60 <= h <= 75:
         return -4 + h / 15
     elif 75 <= h <= 120:
@@ -113,7 +113,7 @@ def fuzzy_segmentation_lightgreen_triangle(h):
         return 0
 
 
-def fuzzy_segmentation_darkgreen_triangle(h):
+def fuzzy_segmentation_darkgreen_triangular(h):
     if 90 <= h <= 120:
         return -3 + h / 30
     elif 120 <= h <= 180:
@@ -122,7 +122,7 @@ def fuzzy_segmentation_darkgreen_triangle(h):
         return 0
 
 
-def fuzzy_segmentation_aqua_triangle(h):
+def fuzzy_segmentation_aqua_triangular(h):
     if 120 <= h <= 180:
         return -2 + h / 60
     elif 180 <= h <= 240:
@@ -131,7 +131,7 @@ def fuzzy_segmentation_aqua_triangle(h):
         return 0
 
 
-def fuzzy_segmentation_blue_triangle(h):
+def fuzzy_segmentation_blue_triangular(h):
     if 180 <= h <= 240:
         return -3 + h / 60
     elif 240 <= h <= 300:
@@ -140,7 +140,7 @@ def fuzzy_segmentation_blue_triangle(h):
         return 0
 
 
-def fuzzy_segmentation_darkpurple_triangle(h):
+def fuzzy_segmentation_darkpurple_triangular(h):
     if 240 <= h <= 300:
         return -4 + h / 60
     elif 300 <= h <= 330:
@@ -149,7 +149,7 @@ def fuzzy_segmentation_darkpurple_triangle(h):
         return 0
 
 
-def fuzzy_segmentation_lightpurple_triangle(h):
+def fuzzy_segmentation_lightpurple_triangular(h):
     if 300 <= h <= 330:
         return -10 + h / 30
     elif 330 <= h <= 360:
