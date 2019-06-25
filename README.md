@@ -4,7 +4,7 @@ Detection and automatic deletion of staples in images of wound of abdominal surg
 
 ```
 Munar, M., González-Hidalgo, M., & Moyà, G. (2019).
-Final Degree Report
+Final Degree Project 
 Universitat de les Illes Balears
 ``` 
 
