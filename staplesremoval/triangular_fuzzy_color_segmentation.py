@@ -1,6 +1,18 @@
 from skimage import color
 
 
+def get_number_red_pixels(image):
+    total_pixels = image.shape[0]*image.shape[1]
+
+    red_pixels = 0;
+    for i in range(image.shape[0]):
+        for j in range(image.shape[1]):
+            if image[i, j, 0] == 255 and image[i, j, 1] == 0 and image[i, j, 2] == 0:
+                red_pixels += 1
+
+    return total_pixels, red_pixels
+
+
 def triangular_fuzzy_color_segmentation(image):
     rgb_image = image.copy()
     hsv_image = color.rgb2hsv(rgb_image)

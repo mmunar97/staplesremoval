@@ -7,8 +7,8 @@ data_dir = osp.abspath(osp.dirname(__file__))
 
 
 def load_infection_example_image():
-    return skimage.color.rgba2rgb(skimage.io.imread(_os.path.join(data_dir, 'images/image_infection.png')))
+    return skimage.io.imread(_os.path.join(data_dir, 'images/image_infection.png'))
 
 
 def load_noinfection_example_image():
-    return skimage.color.rgba2rgb(skimage.io.imread(_os.path.join(data_dir, 'images/image_noinfection.png')))
+    return skimage.io.imread(_os.path.join(data_dir, 'images/image_noinfection.png'))

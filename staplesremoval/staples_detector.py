@@ -18,7 +18,7 @@ def generate_mask(image):
     holes = fill_small_holes(C)
     filtered = remove_small_objects(holes, 50)
 
-    dilated_mask = dilate_mask(dilate_mask(filtered, se), se)
+    dilated_mask = dilate_mask(dilate_mask(dilate_mask(dilate_mask(filtered, se), se), se),se)
     colormask = get_drawn_mask(image, dilated_mask)
 
     return colormask, dilated_mask
