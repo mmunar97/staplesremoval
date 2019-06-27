@@ -11,9 +11,10 @@ def detect_infection(image):
     clean_regions = remove_staples_from_regions(regions)
     segmented_regions = segment_inpainted_regions(clean_regions)
 
-    red_proportion = get_red_proportion(segmented_regions)
-
-    return red_proportion
+    if len(segmented_regions) == 0:
+        return 0
+    else:
+        return get_red_proportion(segmented_regions)
 
 
 def get_red_proportion(regions):
@@ -28,22 +29,12 @@ def get_red_proportion(regions):
 
 
 def segment_inpainted_regions(regions):
-    segmented_regions = []
-
-    for image in regions:
-        segmented_image = triangular_fuzzy_color_segmentation(image)
-        segmented_regions.append(segmented_image)
-
+    segmented_regions = [triangular_fuzzy_color_segmentation(image) for image in regions]
     return segmented_regions
 
 
 def remove_staples_from_regions(regions):
-    cleaned_regions = []
-
-    for image in regions:
-        cleaned_image = remove_staples(image)
-        cleaned_regions.append(cleaned_image)
-
+    cleaned_regions = [remove_staples(image) for image in regions]
     return cleaned_regions
 
 
@@ -68,10 +59,7 @@ def generate_wound_regions(image, N_vertical, N_horizontal):
 
 def generate_grid(size, N):
     step = int(size / N)
-    sequence = []
-
-    for i in range(0, 5):
-        sequence.append(step * i)
+    sequence = [(step * i) for i in range(0, 5)]
     sequence.append(size)
 
     return sequence
