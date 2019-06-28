@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='staplesremoval',
-    version='1.5',
+    version='1.6',
     packages=['staplesremoval'],
     url='https://github.com/mmunar97',
     license='mit',
