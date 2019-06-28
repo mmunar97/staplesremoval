@@ -2,6 +2,14 @@ from skimage import color
 
 
 def get_number_red_pixels(image):
+    """Computes the frequency of red pixels.
+
+    Args:
+      image: An RGB image.
+    Returns:
+      The total pixels of the image and the red pixels.
+    """
+
     total_pixels = image.shape[0]*image.shape[1]
 
     red_pixels = 0;
@@ -14,6 +22,14 @@ def get_number_red_pixels(image):
 
 
 def triangular_fuzzy_color_segmentation(image):
+    """Computes the color segmentation of an image.
+
+    Args:
+      image: An RGB image.
+    Returns:
+        An RGB color segmented image.
+    """
+
     rgb_image = image.copy()
     hsv_image = color.rgb2hsv(rgb_image)
 
@@ -81,6 +97,14 @@ def triangular_fuzzy_color_segmentation(image):
 
 
 def fuzzy_segmentation_red_triangular(h):
+    """Computes the triangular membership function of the red colour.
+
+    Args:
+      h: The value of the H channel of the pixel
+    Returns:
+        The membership function
+    """
+
     if 0 <= h <= 30:
         return 1 - h / 30
     elif 330 <= h <= 360:
@@ -90,6 +114,14 @@ def fuzzy_segmentation_red_triangular(h):
 
 
 def fuzzy_segmentation_darkorange_triangular(h):
+    """Computes the triangular membership function of the dark orange colour.
+
+    Args:
+      h: The value of the H channel of the pixel
+    Returns:
+        The membership function
+    """
+
     if 0 <= h <= 30:
         return h / 30
     elif 30 <= h <= 45:
@@ -99,6 +131,14 @@ def fuzzy_segmentation_darkorange_triangular(h):
 
 
 def fuzzy_segmentation_lightorange_triangular(h):
+    """Computes the triangular membership function of the light orange colour.
+
+    Args:
+      h: The value of the H channel of the pixel
+    Returns:
+        The membership function
+    """
+
     if 30 <= h <= 45:
         return -2 + h / 15
     elif 45 <= h <= 60:
@@ -108,6 +148,14 @@ def fuzzy_segmentation_lightorange_triangular(h):
 
 
 def fuzzy_segmentation_yellow_triangular(h):
+    """Computes the triangular membership function of the yellow colour.
+
+    Args:
+      h: The value of the H channel of the pixel
+    Returns:
+        The membership function
+    """
+
     if 45 <= h <= 60:
         return -3 + h / 15
     elif 60 <= h <= 90:
@@ -117,6 +165,14 @@ def fuzzy_segmentation_yellow_triangular(h):
 
 
 def fuzzy_segmentation_lightgreen_triangular(h):
+    """Computes the triangular membership function of the light green colour.
+
+    Args:
+      h: The value of the H channel of the pixel
+    Returns:
+        The membership function
+    """
+
     if 60 <= h <= 75:
         return -4 + h / 15
     elif 75 <= h <= 120:
@@ -126,6 +182,14 @@ def fuzzy_segmentation_lightgreen_triangular(h):
 
 
 def fuzzy_segmentation_darkgreen_triangular(h):
+    """Computes the triangular membership function of the dark green colour.
+
+    Args:
+      h: The value of the H channel of the pixel
+    Returns:
+        The membership function
+    """
+
     if 90 <= h <= 120:
         return -3 + h / 30
     elif 120 <= h <= 180:
@@ -135,6 +199,14 @@ def fuzzy_segmentation_darkgreen_triangular(h):
 
 
 def fuzzy_segmentation_aqua_triangular(h):
+    """Computes the triangular membership function of the aqua colour.
+
+    Args:
+      h: The value of the H channel of the pixel
+    Returns:
+        The membership function
+    """
+
     if 120 <= h <= 180:
         return -2 + h / 60
     elif 180 <= h <= 240:
@@ -144,6 +216,14 @@ def fuzzy_segmentation_aqua_triangular(h):
 
 
 def fuzzy_segmentation_blue_triangular(h):
+    """Computes the triangular membership function of the blue colour.
+
+    Args:
+      h: The value of the H channel of the pixel
+    Returns:
+        The membership function
+    """
+
     if 180 <= h <= 240:
         return -3 + h / 60
     elif 240 <= h <= 300:
@@ -153,6 +233,14 @@ def fuzzy_segmentation_blue_triangular(h):
 
 
 def fuzzy_segmentation_darkpurple_triangular(h):
+    """Computes the triangular membership function of the dark purple colour.
+
+    Args:
+      h: The value of the H channel of the pixel
+    Returns:
+        The membership function
+    """
+
     if 240 <= h <= 300:
         return -4 + h / 60
     elif 300 <= h <= 330:
@@ -162,6 +250,14 @@ def fuzzy_segmentation_darkpurple_triangular(h):
 
 
 def fuzzy_segmentation_lightpurple_triangular(h):
+    """Computes the triangular membership function of the light purple colour.
+
+    Args:
+      h: The value of the H channel of the pixel
+    Returns:
+        The membership function
+    """
+
     if 300 <= h <= 330:
         return -10 + h / 30
     elif 330 <= h <= 360:

@@ -14,10 +14,10 @@ if __name__ == "__main__":
     io.show()
 
 
-    noinfection_image = data.load_noinfection_example_image()
-    colormask_noinfection, mask_noinfection = staples_detector.generate_mask(noinfection_image)
-    inpainted_noinfection = inpainting.inpaint_from_mask(noinfection_image, mask_noinfection)
-    segmented_noinfection = triangular_fuzzy_color_segmentation(inpainted_noinfection)
-
-    io.imshow(segmented_noinfection)
-    io.show()
+    # noinfection_image = data.load_noinfection_example_image()
+    # colormask_noinfection, mask_noinfection = staples_detector.generate_mask(noinfection_image)
+    # inpainted_noinfection = inpainting.inpaint_from_mask(noinfection_image, mask_noinfection)
+    # segmented_noinfection = triangular_fuzzy_color_segmentation(inpainted_noinfection)
+    #
+    # io.imshow(segmented_noinfection)
+    # io.show()

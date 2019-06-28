@@ -2,18 +2,34 @@ from skimage import color
 
 
 def get_number_red_pixels(image):
+    """Computes the frequency of red pixels.
+
+    Args:
+      image: An RGB image.
+    Returns:
+      The total pixels of the image and the red pixels.
+    """
+
     total_pixels = image.shape[0]*image.shape[1]
 
     red_pixels = 0;
     for i in range(image.shape[0]):
         for j in range(image.shape[1]):
-            if image[i, j, 0] == 255 & image[i, j, 1] == 0 & image[i, j, 2] == 0:
+            if image[i, j, 0] == 255 and image[i, j, 1] == 0 and image[i, j, 2] == 0:
                 red_pixels += 1
 
     return total_pixels, red_pixels
 
 
 def trapezoidal_fuzzy_color_segmentation(image):
+    """Computes the color segmentation of an image.
+
+    Args:
+      image: An RGB image.
+    Returns:
+        An RGB color segmented image.
+    """
+
     rgb_image = image.copy()
     hsv_image = color.rgb2hsv(rgb_image)
 
@@ -65,6 +81,14 @@ def trapezoidal_fuzzy_color_segmentation(image):
 
 
 def fuzzy_segmentation_red_trapezoidal(h):
+    """Computes the trapezoidal membership function of the red colour.
+
+    Args:
+      h: The value of the H channel of the pixel
+    Returns:
+        The membership function
+    """
+
     if (0 <= h <= 10) or (330 < h <= 360):
         return (1)
     elif 10 < h <= 20:
@@ -76,6 +100,14 @@ def fuzzy_segmentation_red_trapezoidal(h):
 
 
 def fuzzy_segmentation_orange_trapezoidal(h):
+    """Computes the trapezoidal membership function of the orange colour.
+
+    Args:
+      h: The value of the H channel of the pixel
+    Returns:
+        The membership function
+    """
+
     if 0 <= h <= 10 or 55 < h <= 360:
         return 0
     elif 10 < h <= 20:
@@ -87,6 +119,14 @@ def fuzzy_segmentation_orange_trapezoidal(h):
 
 
 def fuzzy_segmentation_yellow_trapezoidal(h):
+    """Computes the trapezoidal membership function of the yellow colour.
+
+    Args:
+      h: The value of the H channel of the pixel
+    Returns:
+        The membership function
+    """
+
     if 0 <= h <= 40 or 80 < h <= 360:
         return 0
     elif 40 < h <= 55:
@@ -98,6 +138,14 @@ def fuzzy_segmentation_yellow_trapezoidal(h):
 
 
 def fuzzy_segmentation_green_trapezoidal(h):
+    """Computes the trapezoidal membership function of the green colour.
+
+    Args:
+      h: The value of the H channel of the pixel
+    Returns:
+        The membership function
+    """
+
     if 0 <= h <= 65 or 170 < h <= 360:
         return 0
     elif 65 < h <= 80:
@@ -109,6 +157,14 @@ def fuzzy_segmentation_green_trapezoidal(h):
 
 
 def fuzzy_segmentation_cyan_trapezoidal(h):
+    """Computes the trapezoidal membership function of the cyan colour.
+
+    Args:
+      h: The value of the H channel of the pixel
+    Returns:
+        The membership function
+    """
+
     if 0 <= h <= 140 or 210 < h <= 360:
         return 0
     elif 140 < h <= 170:
@@ -120,6 +176,14 @@ def fuzzy_segmentation_cyan_trapezoidal(h):
 
 
 def fuzzy_segmentation_blue_trapezoidal(h):
+    """Computes the trapezoidal membership function of the blue colour.
+
+    Args:
+      h: The value of the H channel of the pixel
+    Returns:
+        The membership function
+    """
+
     if 0 <= h <= 200 or 270 < h <= 360:
         return 0
     elif 200 < h <= 210:
@@ -131,6 +195,14 @@ def fuzzy_segmentation_blue_trapezoidal(h):
 
 
 def fuzzy_segmentation_purple_trapezoidal(h):
+    """Computes the trapezoidal membership function of the purple colour.
+
+    Args:
+      h: The value of the H channel of the pixel
+    Returns:
+        The membership function
+    """
+
     if 0 <= h <= 250 or 330 < h <= 360:
         return 0
     elif 250 < h <= 270:
