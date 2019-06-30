@@ -1,3 +1,13 @@
-POLÍTICA DE PRIVACIDAD DE LA APLICACIÓN REDSCAR
+PRIVACY POLICY OF REDSCAR MOBILE APP
 
-1. Objetivo
+These general conditions of use and legal information (hereinafter, the General Conditions) govern the application Redscar. By using the app, you manifest your accordance with the present terms of use. If you don’t agree, we beg you to refrain from using it.
+Through these General Conditions, Redscar makes available to users (hereinafter, the User or Users), the aforesaid website and the Redscar mobile application (hereinafter jointly referred to as the Platform).
+For more information:
+• Marc Munar Covas
+• marc.munar1@uib.estudiant.es
+
+This application has been developed in the Final Degree Project of Mathematics. The aim of the application is to provide a use of the different models and methods developed in the project.
+
+The application works from the image attached by the user for further analysis. The attached image is sent to a server for its corresponding processing and, in NO EVENT, will be distributed to third parties. In addition, it is stated that no information regarding the user is included under any circumstances, so that their personal identification is impossible.
+
+Access to the camera and local files of the device will be used for these purposes. It will be the user who will choose, at all times, the image that you want to upload for analysis.
