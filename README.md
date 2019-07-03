@@ -16,3 +16,10 @@ To install, type in terminal:
 ```bash
 pip install staplesremoval
 ```
+## Example images
+
+In order to verify the proposed methods, the two test images attached to the code can be considered. For the examples, the following image classified with infection will be used:
+
+<p align="center">
+  <img src="staplesremoval/images/image_infection.png" height="400">
+</p>
