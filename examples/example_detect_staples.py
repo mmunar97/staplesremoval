@@ -1,4 +1,4 @@
-from staplesremoval import data
+from staplesremoval import data, GradientMode
 from staplesremoval import staples_detector
 from skimage import io
 
